@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 own_code,own_title
 0,Total Covered
 1,Federal Government
@@ -8,14 +7,3 @@ own_code,own_title
 5,Private
 8,Total Government
 9,Total U.I. Covered (Excludes Federal Government)
-=======
-own_code,own_title
-0,Total Covered
-1,Federal Government
-2,State Government
-3,Local Government
-4,International Government
-5,Private
-8,Total Government
-9,Total U.I. Covered (Excludes Federal Government)
->>>>>>> a04f4286b1df22239adb9e6efa0ca6e595d48d93
