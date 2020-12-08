@@ -269,7 +269,7 @@ var partition = d3.partition()
     var timeoutID;
     
     function startTimeout() {
-      timeoutID = window.setTimeout(sendAlert, 10000);
+      timeoutID = window.setTimeout(sendAlert, 100000);
     }
     
     function sendAlert() {
