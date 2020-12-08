@@ -11,7 +11,7 @@ body {
   }
   #bigcontainer {
     width: 1400px;
-    position: absolute;
+    /*position: absolute;*/
     height: 700px;
   }
   #main {
@@ -19,15 +19,26 @@ body {
     width: 960px;
   }
   
-  #sidebar h1 {
+h1 {
     display: inline-block;
+    float:left;
     width: auto;
     margin-left: 10px;
   }
 
+  #sidebar {
+    float:right;
+  }
+
  #sidebar select {
     display: inline-block;
-    float: right;
+    /*float: right;*/
+    width: auto;
+    margin-right: 10px;
+  }
+  #sidebar label {
+    display: inline-block;
+    /*float: left;*/
     width: auto;
     margin-right: 10px;
   }
@@ -83,6 +94,14 @@ line-height:100%;
     color: #666;
   }
  #counties {
+    font-family: 'Saira Extra Condensed' ;
+    font-size: 1.2em;
+  }
+  #years {
+    font-family: 'Saira Extra Condensed' ;
+    font-size: 1.2em;
+  }
+  #quarters {
     font-family: 'Saira Extra Condensed' ;
     font-size: 1.2em;
   }

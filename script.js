@@ -109,10 +109,20 @@ var partition = d3.partition()
             svg.select(".labels").selectAll("text").remove();
         var slct = document.getElementById("counties");
         var selected = slct.options[slct.selectedIndex].value;
-        var areaName = slct.options[slct.selectedIndex].text;
+        var areanameselected = slct.options[slct.selectedIndex].text;
+        var yrslct = document.getElementById("years");
+        var yrselected = yrslct.options[yrslct.selectedIndex].value;
+        var yrName = yrslct.options[yrslct.selectedIndex].text;
+        var qtrslct = document.getElementById("quarters");
+        var qtrselected = qtrslct.options[qtrslct.selectedIndex].value;
+        var qtrName = qtrslct.options[qtrslct.selectedIndex].text;
+        var qtrlevel = 0;
         var level = 0;
+        console.log(yrselected);
+        console.log(qtrselected);
         console.log(selected);
-        updateData(year, qtr, selected, level, areaName);
+        console.log(areanameselected);
+        updateData(yrselected, qtrselected, selected, level, areanameselected);
         });
   
       select.selectAll("option")
@@ -131,6 +141,96 @@ var partition = d3.partition()
         //select.value('0');
 
     });
+
+    d3.csv("yearMeta.csv", function(error, yearData) {
+        var yrselect = d3.select("#years");
+    
+        yrselect
+          .on('change', function(d){
+              x = d3.scaleLinear()
+              .range([0, (2*Math.PI)]);
+          
+              y = d3.scaleLinear()
+              .range([120, radius]);
+              svg.select(".labels").selectAll("text").remove();
+              var slct = document.getElementById("counties");
+              var selected = slct.options[slct.selectedIndex].value;
+              var areanameselected = slct.options[slct.selectedIndex].text;
+          var yrslct = document.getElementById("years");
+          var yrselected = yrslct.options[yrslct.selectedIndex].value;
+          var yrName = yrslct.options[yrslct.selectedIndex].text;
+          var yrlevel = 0;
+          var qtrslct = document.getElementById("quarters");
+          var qtrselected = qtrslct.options[qtrslct.selectedIndex].value;
+          var qtrName = qtrslct.options[qtrslct.selectedIndex].text;
+          var qtrlevel = 0;
+          console.log(yrselected);
+          console.log(qtrselected);
+          console.log(selected);
+          console.log(areanameselected);
+          updateData(yrselected, qtrselected, selected, level, areanameselected);
+          });
+    
+        yrselect.selectAll("option")
+          .data(yearData)
+          .enter()
+            .append("option")
+            .attr("value", function (d) { return d.Year; })
+            .text(function (d) { return d.Year; });
+  
+      d3.select("#years>option")
+          .attr("selected", "selected");
+  
+          var yrslct = document.getElementById("years");
+          var yrselected = yrslct.options[yrslct.selectedIndex].value;
+          
+          //select.value('0');
+  
+      });
+      d3.csv("qtrMeta.csv", function(error, qtrData) {
+        var qtrselect = d3.select("#quarters");
+    
+        qtrselect
+          .on('change', function(d){
+              x = d3.scaleLinear()
+              .range([0, (2*Math.PI)]);
+          
+              y = d3.scaleLinear()
+              .range([120, radius]);
+              svg.select(".labels").selectAll("text").remove();
+              var slct = document.getElementById("counties");
+              var selected = slct.options[slct.selectedIndex].value;
+              var areanameselected = slct.options[slct.selectedIndex].text;
+              var yrslct = document.getElementById("years");
+              var yrselected = yrslct.options[yrslct.selectedIndex].value;
+              var yrName = yrslct.options[yrslct.selectedIndex].text;
+          var qtrslct = document.getElementById("quarters");
+          var qtrselected = qtrslct.options[qtrslct.selectedIndex].value;
+          var qtrName = qtrslct.options[qtrslct.selectedIndex].text;
+          var qtrlevel = 0;
+          console.log(yrselected);
+          console.log(qtrselected);
+          console.log(selected);
+          console.log(areanameselected);
+          updateData(yrselected, qtrselected, selected, level, areanameselected);
+          });
+    
+        qtrselect.selectAll("option")
+          .data(qtrData)
+          .enter()
+            .append("option")
+            .attr("value", function (d) { return d.Qtr; })
+            .text(function (d) { return d.Qtr; });
+  
+      d3.select("#quarters>option")
+          .attr("selected", "selected");
+  
+          var qtrslct = document.getElementById("quarters");
+          var qtrselected = qtrslct.options[qtrslct.selectedIndex].value;
+          
+          //select.value('0');
+  
+      });
 
     var opts = {
         lines: 13, // The number of lines to draw
@@ -184,10 +284,14 @@ var partition = d3.partition()
 
     var level = 0;
 
-    var year = "2017";
+    var year = "2019";
+    var yrselected = "2019";
     var qtr= "1";
+    var qtrselected= "1";
     var area = "US000";
+    var selected = "US000";
     var areaName = "U.S. Total"
+    var areanameselected = "U.S. Total"
 
     updateData(year, qtr, area, level, areaName);
 

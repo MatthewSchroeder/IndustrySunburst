@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <div id="sidebar">
     <h1 id = "area">Industry Employment by Region:</h1>
+    <div id="sidebar">
 
-            <select id="counties">
-            </select>
+
+        <label for="counties">Area:</label>
+        <select id="counties" name="counties">
+        </select>
+
+        <label for="years">Year:</label>      
+        <select id="years" name="years">
+        </select>
+
+        <label for="quarters">Quarter:  </label>
+        <select id="quarters" name="quarters">
+        </select>   
+
+
         <!--<input type="checkbox" id="togglelegend"> Legend<br/>
         <div id="legend" style="visibility: hidden;"></div>-->
     </div>
@@ -20,10 +32,10 @@
       href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:400,600">
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
-<body>
-
+<body> 
     <div id="bigcontainer">
     <div id="main">
+           
         <div id="error"><span id="message"></span></div>
         <div id="sequence"></div>
         <div id="chart">

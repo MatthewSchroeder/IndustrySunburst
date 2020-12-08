@@ -5,7 +5,7 @@
 	}
 
 	$year = safe_GET("year");
-	$qtr = strtolower(safe_GET("qtr"));
+	$qtr = safe_GET("qtr");
 	$industry = safe_GET("industry");
 	$area = safe_GET("area");
 	$size = safe_GET("size");
